@@ -1,0 +1,9 @@
+#remove tabs
+find ./ -type f -exec sed -i 's/\t/ /g' {} \;
+
+#remove multiple spaces
+find ./ -type f -exec sed -i 's/  \+/ /g' {} \;
+
+#format
+astyle --style=google -U -H *.c
+
