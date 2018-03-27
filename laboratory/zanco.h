@@ -1,7 +1,7 @@
 /* Copyright 2019 - Paulo Zanco */
 
-#ifndef _HOME_PZANCO_LAB_ZANCO_H_
-#define _HOME_PZANCO_LAB_ZANCO_H_
+#ifndef LABORATORY_ZANCO_H_
+#define LABORATORY_ZANCO_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,5 +12,5 @@
 
 void err_quit(const char *, ...);
 
-#endif  // _HOME_PZANCO_LAB_ZANCO_H_
+#endif  // LABORATORY_ZANCO_H_
 

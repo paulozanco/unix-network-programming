@@ -1,8 +1,8 @@
 /* Copyright 2019 - Paulo Zanco */
 
-#include "zanco.h"
 #include <stdarg.h>
 #include <syslog.h>
+#include "./zanco.h"
 
 int daemon_proc; /* set nonzero by daemon_init() */
 
