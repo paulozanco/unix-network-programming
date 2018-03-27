@@ -1,0 +1,16 @@
+XTerm*renderFont: true
+XTerm*faceName: Inconsolata
+XTerm*faceSize: 14
+
+UXTerm*renderFont: true
+UXTerm*faceName: Inconsolata
+UXTerm*faceSize: 14
+
+URxvt*termName: rxvt-unicode
+URxvt*font: xft:Inconsolata:size=16:style=Regular
+URxvt*background: black 
+URxvt*foreground: white
+
+Emacs.font: Inconsolata:pixelsize=19:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=trueInconsolata:pixelsize=19:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true 
+
+
