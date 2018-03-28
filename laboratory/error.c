@@ -90,8 +90,7 @@ err_doit(int errnoflag, int level, const char *fmt, va_list ap) {
 #endif
     n = strlen(buf);
     if (errnoflag)
-        snprintf(buf + n, MAXLINE - n, ": %s", strerror(errno_save));
-    strcat(buf, "\n");
+        snprintf(buf + n, MAXLINE - n, ": %s\n", strerror(errno_save));
 
     if (daemon_proc) {
         syslog(level, buf);
