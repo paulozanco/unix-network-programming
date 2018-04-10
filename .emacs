@@ -41,3 +41,16 @@
   (linum-mode 1)
   )
 (add-hook 'c-mode-common-hook 'my:c-mode-common-hook)
+
+(require 'meghanada)
+(add-hook 'java-mode-hook
+          (lambda ()
+            ;; meghanada-mode on
+            (meghanada-mode t)
+            (flycheck-mode +1)
+            (setq c-basic-offset 2)
+            ;; use code format
+            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+
+(setq meghanada-java-path "/usr/bin/java")
+(setq meghanada-maven-path "/usr/bin/mvn")
