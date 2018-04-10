@@ -1,0 +1,68 @@
+(load-theme 'manoj-dark)
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+(require 'yasnippet)
+(yas-global-mode) 
+
+(defun my:ac-c-header-init ()
+    (require 'auto-complete-c-headers)
+    (add-to-list 'ac-sources 'ac-source-c-headers)
+    (setq achead:include-directories
+        (append '("/usr/lib/gcc/x86_64-linux-gnu/6/include"
+                  "/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed")
+             achead:include-directories)))
+
+
+;gcc -xc++ -E -v -
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
+
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
+
+(defun my:flymake-google-init ()
+    (require 'flymake-google-cpplint)
+      (custom-set-variables
+	   '(flymake-google-cpplint-command "/usr/local/bin/cpplint"))
+        (flymake-google-cpplint-load)
+	  )
+(add-hook 'c-mode-hook 'my:flymake-google-init)
+(add-hook 'c++-mode-hook 'my:flymake-google-init)
+
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(semantic-mode 1)
+(defun my:add-semantic-to-autocomplete()
+    (add-to-list 'ac-sources 'ac-source-semantic)
+      )
+(add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
+(global-ede-mode 1)
+
+(global-semantic-idle-scheduler-mode 1)
+
+(defun my:c-mode-common-hook ()
+    (linum-mode 1)
+      )
+(add-hook 'c-mode-common-hook 'my:c-mode-common-hook)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (flymake-google-cpplint auto-complete popup yasnippet yasnippet-snippets iedit google-c-style auto-complete-c-headers))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
